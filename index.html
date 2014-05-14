@@ -117,8 +117,95 @@
         	<img src="img/matz.png">
         </section>
 
-      </div>
+        <section>
+        	<h3>Linguagem Ruby</h3>
+        	<ul>
+        		<li class="fragment">Interpretada</li>
+        		<li class="fragment">
+        			Orientada a Objetos
+        			<ul>
+        				<li>Tudo é objeto</li>
+        				<li>Operação são chamadas de <strong>métodos</strong> em algum <strong>objeto</strong></li>
+        			</ul>
+        		</li>
+        		<li class="fragment">
+        			Tipagem Dinâmica
+        			<ul>
+        				<li>Objetos <strong>possuem tipos</strong></li>
+        				<li>Variáveis <strong> não possuem tipos</strong></li>
+        			</ul>
+        		</li>
+        	</ul>
+        </section>
 
+        <section>
+        	<h3>Linguagem Ruby</h3>
+        	<ul>
+        		<li class="fragment">Dinâmica
+	        		<ul>
+	        			<li class="fragment">Adicionar / modificar código em tempo de execução (metaprogramação)</li>
+	        			<li class="fragment">Inspecionar e analisar objetos (reflection) </li>
+	        		</ul>
+        		</li>
+        	</ul>
+        </section>
+
+        <section>
+        	<h3>Interpretada</h3>
+        	Abra o console e digite: 
+        	<pre><code data-trim contenteditable>
+jlucasps@lotus:~/Projects/ruby$ irb-ruby-2.0.0-p353
+2.0.0-p353 :001 > 2 + 7
+ => 9 
+2.0.0-p353 :002 > "Joao Lucas".capitalize
+ => "Joao lucas" 
+2.0.0-p353 :003 > "Joao Lucas".upcase
+ => "JOAO LUCAS" 
+2.0.0-p353 :004 > 
+					</code></pre>
+        </section>
+
+        <section>
+        	<h3>Interpretada</h3>
+        	Crie o arquivo <strong><code>today.rb</code></strong> com o seguinte conteúdo
+        	<pre><code data-trim contenteditable>
+t = Time.now
+puts "Hoje é dia #{ t.strftime( '%m/%d/%Y' ) }."
+print "Hora atual: #{ t.strftime(' %I:%M%p' ) }. "
+puts "Tenha uma boa semana!"
+					</code></pre>
+					Em seguida, execute o arquivo utilizando o interpretador:
+					<pre><code data-trim contenteditable>
+jlucasps@lotus:~/Projects/ruby$ ruby today.rb 
+Hoje é dia 05/14/2014.
+Hora atual:  02:30AM. Tenha uma boa semana!
+jlucasps@lotus:~/Projects/ruby$
+					</code></pre>
+        </section>
+
+        <section>
+        	<h3>Orientada a Objetos</h3>
+        	No console:
+        	<pre><code data-trim contenteditable>
+jlucasps@lotus:~/Projects/ruby$ irb-ruby-2.0.0-p353
+2.0.0-p353 :001 > class Book; end
+ => nil
+					</code></pre>
+					<pre><code data-trim contenteditable>
+2.0.0-p353 :002 > Book.new.class
+ => Book 
+2.0.0-p353 :003 > Book.new.object_id
+ => 7256240
+					</code></pre>
+					<pre><code data-trim contenteditable>
+2.0.0-p353 :004 > Book.class
+ => Class 
+2.0.0-p353 :005 > Book.object_id
+ => 7359560
+					</code></pre>
+        </section>
+
+      </div>
     </div>
 
     <script src="lib/js/head.min.js"></script>

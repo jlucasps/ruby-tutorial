@@ -205,7 +205,7 @@ jlucasps@lotus:~/Projects/ruby$
 
         <section>
           <h3>Orientada a Objetos</h3>
-          Digitar no console:
+          Digitar no interpretador:
           <pre><code data-trim contenteditable>
 jlucasps@lotus:~/Projects/ruby$ irb-ruby-2.0.0-p353
 2.0.0-p353 :001 > class Book; end
@@ -232,13 +232,13 @@ jlucasps@lotus:~/Projects/ruby$ irb-ruby-2.0.0-p353
             <pre><code data-trim contenteditable>
 class Book
 
-  def initialize(title)
-    @title = title
-  end
+    def initialize(title)
+        @title = title
+    end
 
-  def title
-    @title
-  end
+    def title
+        @title
+    end
 
 end
           </code></pre>
@@ -247,7 +247,7 @@ end
 
         <section>
             <h3>Orientada a Objetos</h3>
-            Criar o arquivo <strong><code>book.rb</code></strong> com o seguinte conteúdo:
+            Abrir o interpretador e importar o arquivo <strong><code>book.rb</code></strong>
             <pre><code data-trim contenteditable>
 jlucasps@elrond:~/Projects/ruby$ irb
 2.0.0-p353 :001 > require './book'
@@ -261,6 +261,177 @@ jlucasps@elrond:~/Projects/ruby$ irb
 2.0.0-p353 :005 >
             </code></pre>
         </section>
+
+
+        <section>
+            <h3>Orientada a Objetos</h3>
+            Ainda no interpretador
+            <pre><code data-trim contenteditable>
+2.0.0-p353 :001 > 2.send(:+, 2)
+ => 4 
+2.0.0-p353 :002 > arr = [:a, :b, :c]
+ => [:a, :b, :c] 
+2.0.0-p353 :003 > arr.send(:[]=, 3, :d)
+ => :d 
+2.0.0-p353 :004 > arr
+ => [:a, :b, :c, :d] 
+2.0.0-p353 :005 > 
+2.0.0-p353 :006 > arr &lt;&lt; :e
+ => [:a, :b, :c, :d, :e] 
+            </code></pre>
+        </section>
+
+
+        <section>
+            <h3>Orientada a Objetos</h3>
+            Mais métodos
+            <pre><code data-trim contenteditable>
+2.0.0-p353 :011 > x = 3
+ => 3 
+2.0.0-p353 :012 > if ( x.send( :==, 3 ) )
+2.0.0-p353 :013?>   puts "X é igual a 3"
+2.0.0-p353 :014?> end
+X é igual a 3
+ => nil 
+            </code></pre>
+        </section>
+
+
+        <section>
+            <h3>Orientada a Objetos</h3>
+            Funções (métodos) criadas no interpretador
+            <pre><code data-trim contenteditable>
+2.0.0-p353 :015 > def sum(a, b)
+2.0.0-p353 :016?>   a + b
+2.0.0-p353 :017?> end
+ => nil 
+2.0.0-p353 :018 > sum( 3, 4 )
+ => 7 
+2.0.0-p353 :019 > self.send(:sum, 5, 6)
+ => 11 
+            </code></pre>
+        </section>
+
+        
+        <section>
+            <h3>Tipagem Dinâmica</h3>
+            <pre><code data-trim contenteditable>
+2.0.0-p353 :010 > def my_func(a, b, c)
+2.0.0-p353 :011?>   res = a
+2.0.0-p353 :012?>   puts res.class
+2.0.0-p353 :013?>   # ...
+2.0.0-p353 :014 >   res = b
+2.0.0-p353 :015?>   puts res.class
+2.0.0-p353 :016?>   # ...
+2.0.0-p353 :017 >   res = c
+2.0.0-p353 :018?>   puts res.class
+2.0.0-p353 :019?> end
+ => nil 
+2.0.0-p353 :020 > my_func("v1", :v2, 3)
+String
+Symbol
+Fixnum
+ => nil 
+2.0.0-p353 :021 >
+            </code></pre>
+        </section>
+
+
+        <section>
+            <h3>Tipagem Dinâmica</h3>
+            <pre><code data-trim contenteditable>
+2.0.0-p353 :029 > def other_func(d, e)
+2.0.0-p353 :030?>   res = d
+2.0.0-p353 :031?>   puts res.object_id
+2.0.0-p353 :032?>   # more code here ...
+2.0.0-p353 :033 >   res = e
+2.0.0-p353 :034?>   puts res.object_id
+2.0.0-p353 :035?> end
+ => nil 
+2.0.0-p353 :036 > other_func(:d, ['e'])
+373928
+11939060
+ => nil 
+            </code></pre>
+        </section>
+
+        <section>
+            <h3>Metaprogramming</h3>
+            Códigos criados/modificados em tempo de execução
+            <pre><code data-trim contenteditable>
+class Book
+
+    def initialize(title)
+        @title = title
+    end
+
+    def title
+        @title
+    end
+
+    def title=(title)
+        @title = title
+    end
+end
+            </code></pre>
+        </section>
+
+
+        <section>
+            <h3>Metaprogramming</h3>
+            É o mesmo que:
+            <pre><code data-trim contenteditable>
+class Book
+
+    attr_accessor :title
+
+    def initialize(title)
+        @title = title
+    end
+
+end
+            </code></pre>
+            <pre><code data-trim contenteditable>
+jlucasps@elrond:~/Projects/ruby$ irb
+2.0.0-p353 :001 > require './book'
+ => true 
+2.0.0-p353 :002 > book = Book.new( "Eloquent Ruby" )
+ => #&lt;Book:0x000000015d3b20 @title="Eloquent Ruby"&gt; 
+2.0.0-p353 :003 > book.title
+ => "Eloquent Ruby" 
+2.0.0-p353 :004 > 
+            </code></pre>
+        </section>
+
+
+        <section>
+            <h3>Reflection</h3>
+            <pre><code data-trim contenteditable>
+jlucasps@elrond:~/Projects/ruby$ irb
+2.0.0-p353 :001 > require './book'
+ => true 
+2.0.0-p353 :003 > book = Book.new ( "Eloquent Ruby" )
+ => #&lt;Book:0x0000000138a288 @title="Eloquent Ruby"&gt; 
+2.0.0-p353 :004 > book.respond_to?(:title)
+ => true 
+2.0.0-p353 :005 > book.respond_to?(:content)
+ => false
+            </code></pre>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       </div>
     </div>

@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" href="css/reveal.min.css">
     <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/custom.css">
 
     <!-- For syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -46,7 +47,7 @@
           <h1>Ruby on Rails</h1>
           <br/>
           <h3>Ruby 2.0</h3>
-          <h3>Ruby on Rails 4.0 </h3>
+          <h3>Rails 4.0 </h3>
           <br/>
           <hr>
           <p> <small>João Lucas Pereira de Santana</small></p>
@@ -56,12 +57,12 @@
           <h3>Apresentação</h3>
           <p>João Lucas Pereira de Santana</p>
           <ul>
-            <li class="fragment"><code>
-	            <a href="http://twitter.com/jlucasps" target="_blank">twitter</a> | 
-	            <a href="http://github.com/jlucasps" target="_blank">github</a> | 
-	            <a href="http://facebook.com/jlucasps" target="_blank">fb</a> |
-	            <a href="mailto:jlucasps@gmail.com">gtalk</a> 
-							: jlucasps
+            <li class="fragment">
+	            <code>
+		            <a href="http://twitter.com/jlucasps" target="_blank">twitter</a> | 
+		            <a href="http://github.com/jlucasps" target="_blank">github</a> | 
+		            <a href="http://facebook.com/jlucasps" target="_blank">fb</a> |
+		            <a href="mailto:jlucasps@gmail.com">gtalk</a> : jlucasps
 	            </code>
             </li>
             <li class="fragment"><em> Ciência da Computação pela UFLA </em></li>
@@ -72,6 +73,48 @@
             	<a href="http://br.linkedin.com/in/jlucasps" target="_blank">linkedin.com/in/jlucasps</a>
             </li>
           </ul>
+        </section>
+
+        <section>
+        	<h3>Ruby on Rails - Origem</h3>
+        	<p> Open source desde 2004 </p>
+        	<p>David Heinemeier Hansson (DHH)</p>
+        	<img src="img/dhh.png">
+        </section>
+
+        <section>
+        	<h3>Rails Core Team</h3>
+        	<p>
+        		<small class="pull-right">Maio/2014</small>
+        	</p>
+        	<br/>
+        	<table>
+        		<tr>
+        			<td> <img src="http://rubyonrails.org/images/pages/core/david.jpg"></td>
+        			<td> <img src="http://rubyonrails.org/images/pages/core/jeremy.jpg"></td>
+        			<td> <img src="http://rubyonrails.org/images/pages/core/koz.jpg"></td>
+        			<td> <img src="http://rubyonrails.org/images/pages/core/yehuda.jpg"></td>
+        			<td> <img src="http://rubyonrails.org/images/pages/core/jose.png"></td>
+        			<td> <img src="http://www.wyeworks.com/images/team/santiago-core.jpg"></td>
+        		</tr>
+        		<tr>
+        			<td> <img src="http://rubyonrails.org/images/pages/core/aaron.png"></td>
+        			<td> <img src="http://www.hashref.com/images/with_andrea_beach_for_rails_core.png"></td>
+        			<td> <img src="http://rubyonrails.org/images/pages/core/jonleighton.jpg"> </td>
+        			<td> <img src="http://rubyonrails.org/images/pages/core/rafaelfranca.jpg"> </td>
+        			<td> <img src="http://rubyonrails.org/images/pages/core/andrew-white.jpg"> </td>
+        			<td> <img src="http://rubyonrails.org/images/pages/core/guillermo-iguaran.jpg"> </td>
+        		</tr>
+        		<tr>
+        			<td colspan="6"><img src="http://rubyonrails.org/images/pages/core/carlos-antonio.jpg"></td>
+        		</tr>
+        	</table>
+        </section>
+
+        <section>
+        	<h3>Linguagem Ruby</h3>
+        	<h4>Yukihiro “Matz” Matsumoto</h4>
+        	<img src="img/matz.png">
         </section>
 
       </div>
@@ -90,6 +133,10 @@
         progress: true,
         history: true,
         center: true,
+        // Display the page number of the current slide
+    		slideNumber: true,
+    		// Enables touch navigation on devices with touch input
+    		touch: true,
 
         theme: Reveal.getQueryHash().theme || 'moon', // available themes are in /css/theme
         transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none

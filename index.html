@@ -50,9 +50,8 @@
           <h3>Rails 4.0 </h3>
           <br/>
           <hr>
-          <p> <small>João Lucas Pereira de Santana</small></p>
+          <p><code><small>João Lucas Pereira de Santana</small></code></p>
         </section>
-
 
         <section>
           <h3>Apresentação</h3>
@@ -171,7 +170,7 @@
         <section>
           <h3>Interpretada</h3>
           Abrir o console e digitar: 
-          <pre><code data-trim contenteditable>
+          <pre><code data-trim contenteditable class="ruby">
 jlucasps@lotus:~/Projects/ruby$ irb-ruby-2.0.0-p353
 2.0.0-p353 :001 > 2 + 7
  => 9 
@@ -187,14 +186,14 @@ jlucasps@lotus:~/Projects/ruby$ irb-ruby-2.0.0-p353
         <section>
           <h3>Interpretada</h3>
           Criar o arquivo <strong><code>today.rb</code></strong> com o seguinte conteúdo
-          <pre><code data-trim contenteditable>
+          <pre><code data-trim contenteditable class="ruby">
 t = Time.now
 puts "Hoje é dia #{ t.strftime( '%m/%d/%Y' ) }."
 print "Hora atual: #{ t.strftime(' %I:%M%p' ) }. "
 puts "Tenha uma boa semana!"
           </code></pre>
           Em seguida, execute o arquivo utilizando o interpretador:
-          <pre><code data-trim contenteditable>
+          <pre><code data-trim contenteditable class="ruby">
 jlucasps@lotus:~/Projects/ruby$ ruby today.rb 
 Hoje é dia 05/14/2014.
 Hora atual:  02:30AM. Tenha uma boa semana!
@@ -206,30 +205,31 @@ jlucasps@lotus:~/Projects/ruby$
         <section>
           <h3>Orientada a Objetos</h3>
           Digitar no interpretador:
-          <pre><code data-trim contenteditable>
+          <pre><code data-trim contenteditable class="ruby">
 jlucasps@lotus:~/Projects/ruby$ irb-ruby-2.0.0-p353
 2.0.0-p353 :001 > class Book; end
  => nil
           </code></pre>
-          <pre><code data-trim contenteditable>
+          <pre><code data-trim contenteditable class="ruby">
 2.0.0-p353 :002 > Book.new.class
  => Book 
 2.0.0-p353 :003 > Book.new.object_id
  => 7256240
           </code></pre>
-          <pre><code data-trim contenteditable>
+          <pre><code data-trim contenteditable class="ruby">
 2.0.0-p353 :004 > Book.class
  => Class 
 2.0.0-p353 :005 > Book.object_id
  => 7359560
           </code></pre>
+          Classes també são objetos!
         </section>
 
 
         <section>
             <h3>Orientada a Objetos</h3>
             Criar o arquivo <strong><code>book.rb</code></strong> com o seguinte conteúdo:
-            <pre><code data-trim contenteditable>
+            <pre><code data-trim contenteditable class="ruby">
 class Book
 
     def initialize(title)
@@ -248,7 +248,7 @@ end
         <section>
             <h3>Orientada a Objetos</h3>
             Abrir o interpretador e importar o arquivo <strong><code>book.rb</code></strong>
-            <pre><code data-trim contenteditable>
+            <pre><code data-trim contenteditable class="ruby">
 jlucasps@elrond:~/Projects/ruby$ irb
 2.0.0-p353 :001 > require './book'
  => true 
@@ -260,13 +260,14 @@ jlucasps@elrond:~/Projects/ruby$ irb
  => "Eloquent Ruby" 
 2.0.0-p353 :005 >
             </code></pre>
+            Chamadas de métodos em objetos
         </section>
 
 
         <section>
             <h3>Orientada a Objetos</h3>
             Ainda no interpretador
-            <pre><code data-trim contenteditable>
+            <pre><code data-trim contenteditable class="ruby">
 2.0.0-p353 :001 > 2.send(:+, 2)
  => 4 
 2.0.0-p353 :002 > arr = [:a, :b, :c]
@@ -279,13 +280,14 @@ jlucasps@elrond:~/Projects/ruby$ irb
 2.0.0-p353 :006 > arr &lt;&lt; :e
  => [:a, :b, :c, :d, :e] 
             </code></pre>
+            Até mesmo operações são métodos
         </section>
 
 
         <section>
             <h3>Orientada a Objetos</h3>
             Mais métodos
-            <pre><code data-trim contenteditable>
+            <pre><code data-trim contenteditable class="ruby">
 2.0.0-p353 :011 > x = 3
  => 3 
 2.0.0-p353 :012 > if ( x.send( :==, 3 ) )
@@ -300,7 +302,7 @@ X é igual a 3
         <section>
             <h3>Orientada a Objetos</h3>
             Funções (métodos) criadas no interpretador
-            <pre><code data-trim contenteditable>
+            <pre><code data-trim contenteditable class="ruby">
 2.0.0-p353 :015 > def sum(a, b)
 2.0.0-p353 :016?>   a + b
 2.0.0-p353 :017?> end
@@ -315,14 +317,14 @@ X é igual a 3
         
         <section>
             <h3>Tipagem Dinâmica</h3>
-            <pre><code data-trim contenteditable>
+            <pre><code data-trim contenteditable class="ruby">
 2.0.0-p353 :010 > def my_func(a, b, c)
 2.0.0-p353 :011?>   res = a
-2.0.0-p353 :012?>   puts res.class
+2.0.0-p353 :012?>   puts res.class				
 2.0.0-p353 :013?>   # ...
 2.0.0-p353 :014 >   res = b
 2.0.0-p353 :015?>   puts res.class
-2.0.0-p353 :016?>   # ...
+2.0.0-p353 :016?>   # more code here ...
 2.0.0-p353 :017 >   res = c
 2.0.0-p353 :018?>   puts res.class
 2.0.0-p353 :019?> end
@@ -334,12 +336,13 @@ Fixnum
  => nil 
 2.0.0-p353 :021 >
             </code></pre>
+            Variável armazena objetos de qualquer tipo
         </section>
 
 
         <section>
             <h3>Tipagem Dinâmica</h3>
-            <pre><code data-trim contenteditable>
+            <pre><code data-trim contenteditable class="ruby">
 2.0.0-p353 :029 > def other_func(d, e)
 2.0.0-p353 :030?>   res = d
 2.0.0-p353 :031?>   puts res.object_id
@@ -353,12 +356,13 @@ Fixnum
 11939060
  => nil 
             </code></pre>
+            Objetos e identificadores
         </section>
 
         <section>
             <h3>Metaprogramming</h3>
             Códigos criados/modificados em tempo de execução
-            <pre><code data-trim contenteditable>
+            <pre><code data-trim contenteditable class="ruby">
 class Book
 
     def initialize(title)
@@ -380,7 +384,7 @@ end
         <section>
             <h3>Metaprogramming</h3>
             É o mesmo que:
-            <pre><code data-trim contenteditable>
+            <pre><code data-trim contenteditable class="ruby">
 class Book
 
     attr_accessor :title
@@ -391,7 +395,7 @@ class Book
 
 end
             </code></pre>
-            <pre><code data-trim contenteditable>
+            <pre><code data-trim contenteditable class="ruby">
 jlucasps@elrond:~/Projects/ruby$ irb
 2.0.0-p353 :001 > require './book'
  => true 
@@ -406,7 +410,7 @@ jlucasps@elrond:~/Projects/ruby$ irb
 
         <section>
             <h3>Reflection</h3>
-            <pre><code data-trim contenteditable>
+            <pre><code data-trim contenteditable class="ruby">
 jlucasps@elrond:~/Projects/ruby$ irb
 2.0.0-p353 :001 > require './book'
  => true 
@@ -417,9 +421,137 @@ jlucasps@elrond:~/Projects/ruby$ irb
 2.0.0-p353 :005 > book.respond_to?(:content)
  => false
             </code></pre>
+            Inspecionando objetos
+        </section>
+
+        <section>
+          <h3>Reflection</h3>
+          <pre><code data-trim contenteditable class="ruby">
+2.0.0-p353 :001 > require './book'
+ => true 
+2.0.0-p353 :003 > book = Book.new "Eloquent Ruby"
+ => #&lt;Book:0x00000002845330 @title="Eloquent Ruby"&gt; 
+2.0.0-p353 :004 > book.methods
+ => [:title, :title=, :nil?, :===, :=~, :!~, :eql?, :hash, :&lt;=&gt;,
+      :class, :singleton_class, :clone, :dup, :taint, :tainted?,
+      :untaint, :untrust, :untrusted?, :trust, :freeze, :frozen?,
+      :to_s, :inspect, :methods, :singleton_methods, :protected_methods,
+      :private_methods, :public_methods, :instance_variables,
+      :instance_variable_get, :instance_variable_set,
+      :instance_variable_defined?, :remove_instance_variable,
+      :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send,
+      :respond_to?, :extend, :display, :method, :public_method,
+      :define_singleton_method, :object_id, :to_enum, :enum_for,
+      :==, :equal?, :!, :!=, :instance_eval, :instance_exec,
+      :__send__, :__id__] 
+2.0.0-p353 :005 >
+          </code></pre>
         </section>
 
 
+        <section>
+          <h3>Ruby code conventions</h3>
+          Nome das classes UperCamelCase
+          <pre><code data-trim contenteditable class="ruby">
+class Magazine
+  # ...
+end
+          </code></pre>
+          Métodos e variáveis usam snake_case
+          <pre><code data-trim contenteditable class="ruby">
+def number_of_pages 
+  # some code here ...
+end
+def is_web_magazine?
+  # more code ...
+end
+def change_folder!
+  # code code code ...
+end
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Variáveis</h3>
+          Constantes
+          <pre><code data-trim contenteditable class="ruby">
+class Magazine
+  MAX_PAGES = 30
+end
+          </code></pre>
+          Variáveis de instância
+          <pre><code data-trim contenteditable class="ruby">
+class Magazine
+  def initialize
+    @max_pages = 30 # instance variable
+  end
+end
+          </code></pre>
+          Variáveis de classe
+          <pre><code data-trim contenteditable class="ruby">
+class Magazine
+  @@max_pages = 30 # class variable
+  def initialize
+    # ...
+  end
+end
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Acesso a variáveis</h3>
+          Constantes
+          <pre><code data-trim contenteditable class="ruby">
+2.0.0-p353 :013 > class Magazine
+2.0.0-p353 :014?>     MAX_PAGES = 30
+2.0.0-p353 :015?> end
+ => 30 
+2.0.0-p353 :016 > Magazine::MAX_PAGES
+ => 30 
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Acesso a variáveis</h3>
+          Variáveis de instância
+          <pre><code data-trim contenteditable class="ruby">
+2.0.0-p353 :017 > class Magazine
+2.0.0-p353 :018?>     def initialize
+2.0.0-p353 :019?>         @max_pages = 30 # instance variable
+2.0.0-p353 :020?>     end
+2.0.0-p353 :021?>     def max_pages
+2.0.0-p353 :022?>         @max_pages
+2.0.0-p353 :023?>     end
+2.0.0-p353 :024?> end
+ => nil 
+2.0.0-p353 :026 > m = Magazine.new
+ => #&lt;Magazine:0x000000024c5610 @max_pages=30&gt;
+2.0.0-p353 :027 > m.max_pages
+ => 30 
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Acesso a Variáveis</h3>
+          Variáveis de classe
+          <pre><code data-trim contenteditable class="ruby">
+2.0.0-p353 :037 > class Magazine
+2.0.0-p353 :038?>     @@max_pages = 30 # class variable
+2.0.0-p353 :039?>     def initialize
+2.0.0-p353 :040?>         # ... 
+2.0.0-p353 :041 >     end
+2.0.0-p353 :042?>     def self.max_pages
+2.0.0-p353 :043?>         @@max_pages
+2.0.0-p353 :044?>     end
+2.0.0-p353 :045?> end
+ => nil 
+2.0.0-p353 :046 > Magazine.max_pages
+ => 30 
+          </code></pre>
+        </section>
+
+
+        
 
 
 

@@ -658,6 +658,48 @@ system = :linux
           </code></pre>
         </section>
 
+        <section>
+          <h3>Importante</h3>
+          <pre><code data-trim contenteditable class="ruby">
+# ...
+user.name
+          </code></pre>
+          <h6>O que isso não é ?</h6>
+          <ul>
+            <li> <code>name</code> é uma variável presente no objeto <code>user</code></li>
+            <li> <code>name</code> é algum tipo de estrutura de dados presente no <code>user</code></li>
+          </ul>
+          <br/><br/>
+          <h6>O que isso é</h6>
+          <p><code>user</code> é o receptor ao qual enviamos uma chamada de método</p>
+          <p>Considerando que <code>user</code> responde à chamada <code>name</code></p>
+          <pre><code data-trim contenteditable class="ruby">
+# ...
+user.name() # ou user.send(:name) 
+          </code></pre>
+        </section>
+
+        <section>
+          <section>
+            <h3>Joy to use</h3>
+            <p><small>Yukihiro "Matz" Matsumoto </small></p>
+            <br>
+            <p class="fragment">O código deve ser bastante claro</p>
+            <p class="fragment">+</p>
+            <p class="fragment">O código deve ser conciso</p>
+            <p class="fragment">=</p>
+            <p class="fragment">Código simples, efetivo e fazer exatamente o que ser propôe a fazer</p>
+          </section>
+        </section>
+
+        <section>
+          <h3>Ruby e "Modo Poesia"</h3>
+          <p><small>Armando Fox, University of California, Berkeley </small></p>
+          <pre><code data-trim contenteditable class="ruby">
+          code here
+          </code></pre>
+        </section>
+
 
 
 

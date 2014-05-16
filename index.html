@@ -698,11 +698,41 @@ user.name() # ou user.send(:name)
           <h3>Ruby e "Modo Poesia"</h3>
           <p><small>Armando Fox, University of California, Berkeley </small></p>
           <pre><code data-trim contenteditable class="ruby">
-          code here
+def print_key_value( hash )
+  hash.each_pair { |key, value| puts "chave: #{key} - value: #{value}" }
+end
+          </code></pre>
+          <pre><code data-trim contenteditable class="ruby">
+2.0.0-p353 :002 > print_key_value({ user: "Joao lucas", email: "jlucasps" })
+          </code></pre>
+          <pre><code data-trim contenteditable class="ruby">
+2.0.0-p353 :003 > print_key_value( user: "Joao lucas", email: "jlucasps" )
+          </code></pre>
+          <pre><code data-trim contenteditable class="ruby">
+2.0.0-p353 :004 > print_key_value user: "Joao lucas", email: "jlucasps" 
+          </code></pre>
+          <pre><code data-trim contenteditable class="ruby">
+chave: user - value: Joao lucas
+chave: email - value: jlucasps@gmail.com
           </code></pre>
         </section>
 
-
+        <section>
+          <h3>Ruby e "Modo Poesia"</h3>
+          <pre><code data-trim contenteditable class="ruby">
+user.age.should(be() >= 18)
+user.age.should be >= 18
+          </code></pre>
+          <pre><code data-trim contenteditable class="ruby">
+if !logged_in?() # unless logged_in?()
+  (redirect_to(login_page)) and return()
+end
+# ...
+(redirect_to(login_page)) and return() unless logged_in?()
+# ...
+redirect_to login_page and return unless logged_in?
+          </code></pre>
+        </section>
 
 
 

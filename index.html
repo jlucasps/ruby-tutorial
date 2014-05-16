@@ -451,7 +451,7 @@ jlucasps@elrond:~/Projects/ruby$ irb
 
         <section>
           <h3>Ruby code conventions</h3>
-          Nome das classes UperCamelCase
+          Nome das classes UpperCamelCase
           <pre><code data-trim contenteditable class="ruby">
 class Magazine
   # ...
@@ -568,6 +568,8 @@ system = :linux
  => :rails 
           </code></pre>
           <pre><code data-trim contenteditable class="ruby">
+2.0.0-p353 :056 > new_lang = "ruby".to_sym
+ => :ruby
 2.0.0-p353 :057 > new_lang.object_id
  => 321608 
 2.0.0-p353 :058 > lang.object_id
@@ -578,6 +580,8 @@ system = :linux
 
         <section>
           <h3>Array</h3>
+          <p>Coleção de objetos ordenados</p>
+          <p>Indexados por números inteiros começando em 0</p> 
           <pre><code data-trim contenteditable class="ruby">
 2.0.0-p353 :059 > arr = [1, "2", :c, {"name" => "Joao Lucas"}, 5]
  => [1, "2", :c, {"name"=>"Joao Lucas"}, 5] 
@@ -601,8 +605,6 @@ system = :linux
 
         <section>
           <h3>Array</h3>
-          <p>Coleção de objetos ordenados</p>
-          <p>Indexados por números inteiros começando em 0</p> 
           <pre><code data-trim contenteditable class="ruby">
 2.0.0-p353 :070 > numbers
  => [1, 2, 3, 4, 5, 6] 

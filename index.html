@@ -735,6 +735,22 @@ redirect_to login_page and return unless logged_in?
         </section>
 
 
+        <section>
+          <h3>Blocks</h3>
+          <pre><code data-trim contenteditable class="ruby">
+arr = [1, 2, 3, 4, 5]
+arr.map do |n|
+    n + 30
+end
+ => [31, 32, 33, 34, 35] 
+          </code></pre>
+          <br>
+          <ul>
+            <li class="fragment"> Chamamos o método  <code>.map(  )</code> com um <code>block</code></li>
+            <li class="fragment">O bloco interage com a variável <code>n</code> dentro do método <code>.map( )</code></li>
+            <li class="fragment">Cada elemento é somado a <code>30</code></li>
+          </ul>
+        </section>
 
 
 

@@ -1,71 +1,919 @@
 <!doctype html>
-<html>
+<html lang="en">
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Introdução Ruby by jlucasps</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title> Curso Ruby 2 e Rails 4 </title>
+
+    <meta name="description" content="Ruby 2 e Rails 4">
+    <meta name="author" content="João Lucas Pereira de Santana">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Introdução Ruby</h1>
-        <p>Introdução Ruby</p>
 
-        <p class="view"><a href="https://github.com/jlucasps/curso-ruby-on-rails">View the Project on GitHub <small>jlucasps/curso-ruby-on-rails</small></a></p>
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
 
+        <section>
+          <h1>Ruby on Rails</h1>
+          <br/>
+          <h3>Ruby 2.0</h3>
+          <h3>Rails 4.0 </h3>
+          <br/>
+          <hr>
+          <p><code><small>João Lucas Pereira de Santana</small></code></p>
+        </section>
+
+        <section>
+          <h3>Apresentação</h3>
+          <p>João Lucas Pereira de Santana</p>
+          <ul>
+            <li class="fragment">
+              <code>
+                <a href="http://twitter.com/jlucasps" target="_blank">twitter</a> | 
+                <a href="http://github.com/jlucasps" target="_blank">github</a> | 
+                <a href="http://facebook.com/jlucasps" target="_blank">fb</a> |
+                <a href="mailto:jlucasps@gmail.com">gtalk</a> : jlucasps
+              </code>
+            </li>
+            <li class="fragment"><em> Ciência da Computação pela UFLA </em></li>
+            <li class="fragment"><strong> JavaScript </strong></li>
+            <li class="fragment"><strong> Ruby </strong></li>
+            <li class="fragment"><strong> Java </strong></li>
+            <li class="fragment">
+              <a href="http://br.linkedin.com/in/jlucasps" target="_blank">linkedin.com/in/jlucasps</a>
+            </li>
+          </ul>
+        </section>
+
+
+        <section>
+            <h3>Agenda</h3>
+            <ul>
+                <li class="fragment">Linguagem Ruby</li>
+                <li class="fragment">Ruby on Rails full stack</li>
+                <li class="fragment">Ferramentas e ambiente</li>
+                <li class="fragment">Aplicação Básicas</li>
+                <li class="fragment">Deploy na Heroku</li>
+            </ul>
+        </section>
+
+
+        <section>
+          <h3>Linguagem Ruby</h3>
+          <h4>Yukihiro “Matz” Matsumoto</h4>
+          <img src="img/matz.png">
+        </section>
+        
+
+        <section>
+          <h3>Ruby on Rails - Origem</h3>
+          <p> Open source desde 2004 </p>
+          <p>David Heinemeier Hansson (DHH)</p>
+          <img src="img/dhh.png">
+        </section>
+
+
+        <section>
+          <h3>Rails Core Team</h3>
+          <p>
+            <small class="pull-right">Maio/2014</small>
+          </p>
+          <br/>
+          <table>
+            <tr>
+              <td> <img src="http://rubyonrails.org/images/pages/core/david.jpg"></td>
+              <td> <img src="http://rubyonrails.org/images/pages/core/jeremy.jpg"></td>
+              <td> <img src="http://rubyonrails.org/images/pages/core/koz.jpg"></td>
+              <td> <img src="http://rubyonrails.org/images/pages/core/yehuda.jpg"></td>
+              <td> <img src="http://rubyonrails.org/images/pages/core/jose.png"></td>
+              <td> <img src="http://www.wyeworks.com/images/team/santiago-core.jpg"></td>
+            </tr>
+            <tr>
+              <td> <img src="http://rubyonrails.org/images/pages/core/aaron.png"></td>
+              <td> <img src="http://www.hashref.com/images/with_andrea_beach_for_rails_core.png"></td>
+              <td> <img src="http://rubyonrails.org/images/pages/core/jonleighton.jpg"> </td>
+              <td> <img src="http://rubyonrails.org/images/pages/core/rafaelfranca.jpg"> </td>
+              <td> <img src="http://rubyonrails.org/images/pages/core/andrew-white.jpg"> </td>
+              <td> <img src="http://rubyonrails.org/images/pages/core/guillermo-iguaran.jpg"> </td>
+            </tr>
+            <tr>
+              <td colspan="6"><img src="http://rubyonrails.org/images/pages/core/carlos-antonio.jpg"></td>
+            </tr>
+          </table>
+        </section>
+
+
+        <section>
+          <h3>Linguagem Ruby</h3>
+          <ul>
+            <li class="fragment">Interpretada</li>
+            <li class="fragment">
+              Orientada a Objetos
+              <ul>
+                <li>Tudo é objeto</li>
+                <li>Operações são chamadas de <strong>métodos</strong> em algum <strong>objeto</strong></li>
+              </ul>
+            </li>
+            <li class="fragment">
+              Tipagem Dinâmica
+              <ul>
+                <li>Objetos <strong>possuem tipos</strong></li>
+                <li>Variáveis <strong> não possuem tipos</strong></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+
+        <section>
+          <h3>Linguagem Ruby</h3>
+          <ul>
+            <li class="fragment">Dinâmica
+              <ul>
+                <li class="fragment">Adicionar / modificar código em tempo de execução (metaprogramação)</li>
+                <li class="fragment">Inspecionar e analisar objetos (reflection) </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+
+        <section>
+          <h3>Interpretada</h3>
+          Abrir o console e digitar: 
+          <pre><code data-trim contenteditable class="ruby">
+jlucasps@lotus:~/Projects/ruby$ irb-ruby-2.0.0-p353
+> 2 + 7
+ => 9 
+> "Joao Lucas".capitalize
+ => "Joao lucas" 
+> "Joao Lucas".upcase
+ => "JOAO LUCAS" 
+> 
+          </code></pre>
+        </section>
+
+
+        <section>
+          <h3>Interpretada</h3>
+          Criar o arquivo <strong><code>today.rb</code></strong> com o seguinte conteúdo
+          <pre><code data-trim contenteditable class="ruby">
+t = Time.now
+puts "Hoje é dia #{ t.strftime( '%m/%d/%Y' ) }."
+print "Hora atual: #{ t.strftime(' %I:%M%p' ) }. "
+puts "Tenha uma boa semana!"
+          </code></pre>
+          Em seguida, execute o arquivo utilizando o interpretador:
+          <pre><code data-trim contenteditable class="ruby">
+jlucasps@lotus:~/Projects/ruby$ ruby today.rb 
+Hoje é dia 05/14/2014.
+Hora atual:  02:30AM. Tenha uma boa semana!
+jlucasps@lotus:~/Projects/ruby$
+          </code></pre>
+        </section>
+
+
+        <section>
+          <h3>Orientada a Objetos</h3>
+          Digitar no interpretador:
+          <pre><code data-trim contenteditable class="ruby">
+jlucasps@lotus:~/Projects/ruby$ irb-ruby-2.0.0-p353
+> class Book; end
+ => nil
+          </code></pre>
+          <pre><code data-trim contenteditable class="ruby">
+> Book.new.class
+ => Book 
+> Book.new.object_id
+ => 7256240
+          </code></pre>
+          <pre><code data-trim contenteditable class="ruby">
+> Book.class
+ => Class 
+> Book.object_id
+ => 7359560
+          </code></pre>
+          Classes também são objetos!
+        </section>
+
+
+        <section>
+            <h3>Orientada a Objetos</h3>
+            Criar o arquivo <strong><code>book.rb</code></strong> com o seguinte conteúdo:
+            <pre><code data-trim contenteditable class="ruby">
+class Book
+
+    def initialize(title)
+        @title = title
+    end
+
+    def title
+        @title
+    end
+
+end
+          </code></pre>
+        </section>
+
+
+        <section>
+            <h3>Orientada a Objetos</h3>
+            Abrir o interpretador e importar o arquivo <strong><code>book.rb</code></strong>
+            <pre><code data-trim contenteditable class="ruby">
+jlucasps@elrond:~/Projects/ruby$ irb
+> require './book'
+ => true 
+> book = Book.new "Eloquent Ruby"
+ => #&lt;Book:0x0000000173e870 @title="Eloquent Ruby"&gt; 
+> book.title
+ => "Eloquent Ruby" 
+> book.send(:title)
+ => "Eloquent Ruby" 
+>
+            </code></pre>
+            Chamadas de métodos em objetos
+        </section>
+
+
+        <section>
+            <h3>Orientada a Objetos</h3>
+            Ainda no interpretador
+            <pre><code data-trim contenteditable class="ruby">
+> 2.send(:+, 2)
+ => 4 
+> arr = [:a, :b, :c]
+ => [:a, :b, :c] 
+> arr.send(:[]=, 3, :d)
+ => :d 
+> arr
+ => [:a, :b, :c, :d] 
+> 
+> arr &lt;&lt; :e
+ => [:a, :b, :c, :d, :e] 
+            </code></pre>
+            Até mesmo operações são métodos
+        </section>
+
+
+        <section>
+            <h3>Orientada a Objetos</h3>
+            Mais métodos
+            <pre><code data-trim contenteditable class="ruby">
+> x = 3
+ => 3 
+> if ( x.send( :==, 3 ) )
+>   puts "X é igual a 3"
+> end
+X é igual a 3
+ => nil 
+            </code></pre>
+        </section>
+
+
+        <section>
+            <h3>Orientada a Objetos</h3>
+            Funções (métodos) criadas no interpretador
+            <pre><code data-trim contenteditable class="ruby">
+> def sum(a, b)
+>   a + b
+> end
+ => nil 
+> sum( 3, 4 )
+ => 7 
+> self.send(:sum, 5, 6)
+ => 11 
+            </code></pre>
+        </section>
+
+        
+        <section>
+            <h3>Tipagem Dinâmica</h3>
+            <pre><code data-trim contenteditable class="ruby">
+> def my_func(a, b, c)
+>   res = a
+>   puts res.class				
+>   # ...
+>   res = b
+>   puts res.class
+>   # more code here ...
+>   res = c
+>   puts res.class
+> end
+ => nil 
+> my_func("v1", :v2, 3)
+String
+Symbol
+Fixnum
+ => nil 
+>
+            </code></pre>
+            Variável armazena objetos de qualquer tipo
+        </section>
+
+
+        <section>
+            <h3>Tipagem Dinâmica</h3>
+            <pre><code data-trim contenteditable class="ruby">
+> def other_func(d, e)
+>   res = d
+>   puts res.object_id
+>   # more code here ...
+>   res = e
+>   puts res.object_id
+> end
+ => nil 
+> other_func(:d, ['e'])
+373928
+11939060
+ => nil 
+            </code></pre>
+            Objetos e identificadores
+        </section>
+
+        <section>
+            <h3>Metaprogramming</h3>
+            Códigos criados/modificados em tempo de execução
+            <pre><code data-trim contenteditable class="ruby">
+class Book
+
+    def initialize(title)
+        @title = title
+    end
+
+    def title
+        @title
+    end
+
+    def title=(title)
+        @title = title
+    end
+end
+            </code></pre>
+        </section>
+
+
+        <section>
+            <h3>Metaprogramming</h3>
+            É o mesmo que:
+            <pre><code data-trim contenteditable class="ruby">
+class Book
+
+    attr_accessor :title
+
+    def initialize(title)
+        @title = title
+    end
+
+end
+            </code></pre>
+            <pre><code data-trim contenteditable class="ruby">
+jlucasps@elrond:~/Projects/ruby$ irb
+> require './book'
+ => true 
+> book = Book.new( "Eloquent Ruby" )
+ => #&lt;Book:0x000000015d3b20 @title="Eloquent Ruby"&gt; 
+> book.title
+ => "Eloquent Ruby" 
+> 
+            </code></pre>
+        </section>
+
+
+        <section>
+            <h3>Reflection</h3>
+            <pre><code data-trim contenteditable class="ruby">
+jlucasps@elrond:~/Projects/ruby$ irb
+> require './book'
+ => true 
+> book = Book.new ( "Eloquent Ruby" )
+ => #&lt;Book:0x0000000138a288 @title="Eloquent Ruby"&gt; 
+> book.respond_to?(:title)
+ => true 
+> book.respond_to?(:content)
+ => false
+            </code></pre>
+            Inspecionando objetos
+        </section>
+
+        <section>
+          <h3>Reflection</h3>
+          <pre><code data-trim contenteditable class="ruby">
+> require './book'
+ => true 
+> book = Book.new "Eloquent Ruby"
+ => #&lt;Book:0x00000002845330 @title="Eloquent Ruby"&gt; 
+> book.methods
+ => [:title, :title=, :nil?, :===, :=~, :!~, :eql?, :hash, :&lt;=&gt;,
+      :class, :singleton_class, :clone, :dup, :taint, :tainted?,
+      :untaint, :untrust, :untrusted?, :trust, :freeze, :frozen?,
+      :to_s, :inspect, :methods, :singleton_methods, :protected_methods,
+      :private_methods, :public_methods, :instance_variables,
+      :instance_variable_get, :instance_variable_set,
+      :instance_variable_defined?, :remove_instance_variable,
+      :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send,
+      :respond_to?, :extend, :display, :method, :public_method,
+      :define_singleton_method, :object_id, :to_enum, :enum_for,
+      :==, :equal?, :!, :!=, :instance_eval, :instance_exec,
+      :__send__, :__id__] 
+>
+          </code></pre>
+        </section>
+
+
+        <section>
+          <h3>Ruby code conventions</h3>
+          Nome das classes UpperCamelCase
+          <pre><code data-trim contenteditable class="ruby">
+class Magazine
+  # ...
+end
+          </code></pre>
+          Métodos e variáveis usam snake_case
+          <pre><code data-trim contenteditable class="ruby">
+def number_of_pages 
+  # some code here ...
+end
+def is_web_magazine?
+  # more code ...
+end
+def change_folder!
+  # code code code ...
+end
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Variáveis</h3>
+          Constantes
+          <pre><code data-trim contenteditable class="ruby">
+class Magazine
+  MAX_PAGES = 30
+end
+          </code></pre>
+          Variáveis de instância
+          <pre><code data-trim contenteditable class="ruby">
+class Magazine
+  def initialize
+    @max_pages = 30 # instance variable
+  end
+end
+          </code></pre>
+          Variáveis de classe
+          <pre><code data-trim contenteditable class="ruby">
+class Magazine
+  @@max_pages = 30 # class variable
+  def initialize
+    # ...
+  end
+end
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Acesso a variáveis</h3>
+          Constantes
+          <pre><code data-trim contenteditable class="ruby">
+> class Magazine
+>     MAX_PAGES = 30
+> end
+ => 30 
+> Magazine::MAX_PAGES
+ => 30 
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Acesso a variáveis</h3>
+          Variáveis de instância
+          <pre><code data-trim contenteditable class="ruby">
+> class Magazine
+>     def initialize
+>         @max_pages = 30 # instance variable
+>     end
+>     def max_pages
+>         @max_pages
+>     end
+> end
+ => nil 
+> m = Magazine.new
+ => #&lt;Magazine:0x000000024c5610 @max_pages=30&gt;
+> m.max_pages
+ => 30 
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Acesso a Variáveis</h3>
+          Variáveis de classe
+          <pre><code data-trim contenteditable class="ruby">
+> class Magazine
+>     @@max_pages = 30 # class variable
+>     def initialize
+>         # ... 
+>     end
+>     def self.max_pages
+>         @@max_pages
+>     end
+> end
+ => nil 
+> Magazine.max_pages
+ => 30 
+          </code></pre>
+        </section>
+
+
+        <section>
+          <h3>Símbolos</h3>
+          <pre><code data-trim contenteditable class="ruby">
+languagem = :ruby
+framework = :rails
+system = :linux
+          </code></pre>
+          "String's imutáveis cujo valor é o próprio símbolo"
+          <pre><code data-trim contenteditable class="ruby">
+> lang = :ruby
+ => :ruby 
+> lang.to_s
+ => "ruby" 
+> framework = "rails".to_sym
+ => :rails 
+          </code></pre>
+          <pre><code data-trim contenteditable class="ruby">
+> new_lang = "ruby".to_sym
+ => :ruby
+> new_lang.object_id
+ => 321608 
+> lang.object_id
+ => 321608 
+          </code></pre>
+        </section>
+
+
+        <section>
+          <h3>Array</h3>
+          <p>Coleção de objetos ordenados</p>
+          <p>Indexados por números inteiros começando em 0</p> 
+          <pre><code data-trim contenteditable class="ruby">
+> arr = [1, "2", :c, {"name" => "Joao Lucas"}, 5]
+ => [1, "2", :c, {"name"=>"Joao Lucas"}, 5] 
+> arr[0]
+ => 1 
+> arr.last
+ => 5 
+          </code></pre>
+          <pre><code data-trim contenteditable class="ruby">
+> numbers = [1, 2, 3, 4, 5, 6]
+ => [1, 2, 3, 4, 5, 6] 
+> numbers.min
+ => 1 
+> numbers.max
+ => 6 
+> numbers.reverse
+ => [6, 5, 4, 3, 2, 1]
+          </code></pre>
+        </section>
+
+
+        <section>
+          <h3>Array</h3>
+          <pre><code data-trim contenteditable class="ruby">
+> numbers
+ => [1, 2, 3, 4, 5, 6] 
+> numbers.shuffle
+ => [1, 4, 6, 3, 2, 5] 
+> numbers.push 7
+ => [1, 2, 3, 4, 5, 6, 7] 
+> numbers &lt;&lt; 8
+ => [1, 2, 3, 4, 5, 6, 7, 8] 
+> numbers.pop
+ => 8 
+> numbers
+ => [1, 2, 3, 4, 5, 6, 7] 
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Hash</h3>
+          <p>Coleçao de pares chave-valor</p>
+          <p>Indexados por objetos de qualquer tipo</p>
+          <pre><code data-trim contenteditable class="ruby">
+> h = {"lang" => "Ruby", "os" => "Linus", "db" => "Postgres"}
+ => {"lang"=>"Ruby", "os"=>"Linus", "db"=>"PostgreSQL"} 
+> h.keys
+ => ["lang", "os", "db"] 
+> h.values
+ => ["Ruby", "Linus", "PostgreSQL"] 
+> h[10] = "Ruby classes"
+ => "Ruby classes" 
+> h
+ => {"lang"=>"Ruby", "os"=>"Linus", "db"=>"PostgreSQL", 10=>"Ruby classes"} 
+> h[{"a" => "b"}] = "C"
+ => "C" 
+> h.delete("db")
+ => "PostgreSQL" 
+> h
+ => {"lang"=>"Ruby", "os"=>"Linus", 10=>"Ruby classes", {"a"=>"b"}=>"C"}
+          </code></pre>
+        </section>
+
+
+        <section>
+          <h3>Hashes com Símbolos</h3>
+          <p>Ruby 1.8</p>
+          <pre><code data-trim contenteditable class="ruby">
+> tools = {:lang => "Ruby", :framework => "Rails"}
+ => {:lang=>"Ruby", :framework=>"Rails"}
+          </code></pre>
+          <p>Ruby 1.9</p>
+          <pre><code data-trim contenteditable class="ruby">
+> tools = {lang: "Ruby", framework: "Rails"}
+ => {:lang=>"Ruby", :framework=>"Rails"} 
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Importante</h3>
+          <pre><code data-trim contenteditable class="ruby">
+# ...
+user.name
+          </code></pre>
+          <h6>O que isso não é ?</h6>
+          <ul>
+            <li> <code>name</code> é uma variável presente no objeto <code>user</code></li>
+            <li> <code>name</code> é algum tipo de estrutura de dados presente no <code>user</code></li>
+          </ul>
+          <br/><br/>
+          <h6>O que isso é</h6>
+          <p><code>user</code> é o receptor ao qual enviamos uma chamada de método</p>
+          <p>Considerando que <code>user</code> responde à chamada <code>name</code></p>
+          <pre><code data-trim contenteditable class="ruby">
+# ...
+user.name() # ou user.send(:name) 
+          </code></pre>
+        </section>
+
+        <section>
+          <section>
+            <h3>Joy to use</h3>
+            <p><small>Yukihiro "Matz" Matsumoto </small></p>
+            <br>
+            <p class="fragment">O código deve ser bastante claro</p>
+            <p class="fragment">+</p>
+            <p class="fragment">O código deve ser conciso</p>
+            <p class="fragment">=</p>
+            <p class="fragment">Código simples, efetivo e fazer exatamente o que ser propôe a fazer</p>
+          </section>
+        </section>
+
+        <section>
+          <h3>Ruby e "Modo Poesia"</h3>
+          <p><small>Armando Fox, University of California, Berkeley </small></p>
+          <pre><code data-trim contenteditable class="ruby">
+def print_key_value( hash )
+  hash.each_pair { |key, value| puts "chave: #{key} - value: #{value}" }
+end
+          </code></pre>
+          <pre><code data-trim contenteditable class="ruby">
+> print_key_value({ user: "Joao lucas", email: "jlucasps" })
+          </code></pre>
+          <pre><code data-trim contenteditable class="ruby">
+> print_key_value( user: "Joao lucas", email: "jlucasps" )
+          </code></pre>
+          <pre><code data-trim contenteditable class="ruby">
+> print_key_value user: "Joao lucas", email: "jlucasps" 
+          </code></pre>
+          <pre><code data-trim contenteditable class="ruby">
+chave: user - value: Joao lucas
+chave: email - value: jlucasps@gmail.com
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Ruby e "Modo Poesia"</h3>
+          <pre><code data-trim contenteditable class="ruby">
+user.age.should(be() >= 18)
+user.age.should be >= 18
+          </code></pre>
+          <pre><code data-trim contenteditable class="ruby">
+if !logged_in?() # unless logged_in?()
+  (redirect_to(login_page)) and return()
+end
+# ...
+(redirect_to(login_page)) and return() unless logged_in?()
+# ...
+redirect_to login_page and return unless logged_in?
+          </code></pre>
+        </section>
+
+
+        <section>
+          <h3>Blocks</h3>
+          <pre><code data-trim contenteditable class="ruby">
+arr = [1, 2, 3, 4, 5]
+arr.map do |n|
+    n + 30
+end
+ => [31, 32, 33, 34, 35] 
+          </code></pre>
+          <br>
+          <ul>
+            <li class="fragment"> Chamamos o método  <code>.map(  )</code> com um <code>block</code></li>
+            <li class="fragment">O bloco interage com a variável <code>n</code> dentro do método <code>.map( )</code></li>
+            <li class="fragment">Cada elemento é somado a <code>30</code></li>
+          </ul>
+        </section>
+
+      <section>
+        <h3>Blocks</h3>
+        <p>Criar um novo método <code>iterate!</code> e adicionar à classe <code>Array</code></p>
+        <pre><code data-trim contenteditable class="ruby">
+class Array
+  def iterate!
+      self.each_with_index do |n, i|
+        self[i] = yield n
+      end
+  end
+end
+        </code></pre>
+        <pre><code data-trim contenteditable class="ruby">
+> array = [1, 2, 3, 4]
+ => [1, 2, 3, 4] 
+> array.iterate! { |n|
+>   (n * 3) + 5
+> }
+ => [8, 11, 14, 17]
+        </code></pre>
+        Ao chamar o <code>yield</code>, iremos executar o bloco de código fornecido ao método 
+      </section>
+
+      <section>
+        <h3>Procs</h3>
+        <pre><code data-trim contenteditable class="ruby">
+class Array
+  def iterate!( &code )
+    self.each_with_index do |n, i|
+      self[i] = code.call( n )
+    end
+  end
+end
+        </code></pre>
+        <pre><code data-trim contenteditable class="ruby">
+> array = [10, 11, 12, 13]
+ => [10, 11, 12, 13] 
+> array.iterate! do |n|
+>   n ** 2
+> end
+ => [100, 121, 144, 169] 
+        </code></pre>
+      </section>
+
+
+      <section>
+        <h3>Methods</h3>
+        <pre><code data-trim contenteditable class="ruby">
+class Caller
+  def self.exec_before( method_name)
+    @@before = method_name 
+  end
+
+  def self.exec_after( method_name )
+    @@after = method_name
+  end
+
+  def execute( &code )
+    method(@@before).call if defined? @@before
+    code.call
+    method(@@after).call if defined? @@after
+  end
+end
+        </code></pre>
+        <p>Métodos de classe para salvar símbolos nos atributos da classe</p>
+        <p>Método para executar uma <code>Proc</code> entre duas chamadas de métodos</p>
+      </section>
+
+      <section>
+        <h3>Methods</h3>
+        <pre><code data-trim contenteditable class="ruby">
+class Executor &lt; Caller
+
+  exec_before( :say_hello )
+  exec_after( :say_bye )
+
+
+  def say_hello
+    puts "Hello, I'm here!"
+  end
+
+  def say_bye
+    puts "Good bye!"
+  end
+end
+        </code></pre>
+        <p>Classe com dois métodos configurados para serem executados como <code>before</code> e <code>after</code></p>
+      </section>
+
+
+      <section>
+        <h3>Methods</h3>
+        <pre><code data-trim contenteditable class="ruby">
+exec = Executor.new
+
+exec.execute do 
+  puts "I do my job"
+end
+
+# Hello, I'm here!
+# I do my job
+# Good bye!
+        </code></pre>
+        <p>Callbacks executados</p>
+      </section>
+
+      <section>
+        <h2>Let's go to Rails</h2>
 
         <ul>
-          <li><a href="https://github.com/jlucasps/curso-ruby-on-rails/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/jlucasps/curso-ruby-on-rails/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/jlucasps/curso-ruby-on-rails">View On <strong>GitHub</strong></a></li>
+          <li> <a href="http://www.slideshare.net/jlucasps/desenvolvimento-web-com-ruby-on-rails-parte-1-25638741" target="_blank">Ruby on Rails - Parte 1</a></li>
+          <li><a href="http://www.slideshare.net/jlucasps/desenvolvimento-web-com-ruby-on-rails-parte-2" target="_blank">Ruby on Rails - Parte 2</a></li>
+          <li><a href="http://www.slideshare.net/jlucasps/desenvolvimento-web-com-ruby-on-rails-parte-3" target="_blank">Ruby on Rails - Parte 3</a></li>
+          <li><a href="http://www.slideshare.net/jlucasps/desenvolvimento-web-com-ruby-on-rails-parte-4" target="_blank">Ruby on Rails - Parte 4</a></li>
+          <li><a href="http://www.slideshare.net/jlucasps/desenvolvimento-web-com-ruby-on-rails-parte-5" target="_blank">Ruby on Rails - Parte 5</a></li>
+          <li><a href="http://www.slideshare.net/jlucasps/desenvolvimento-web-com-ruby-on-rails-parte-6" target="_blank">Ruby on Rails - Parte 6</a></li>
+          <li><a href="http://www.slideshare.net/jlucasps/desenvolvimento-web-com-ruby-on-rails-extras-25639529" target="_blank">Ruby on Rails - Extras</a></li>          
         </ul>
-      </header>
-      <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/jlucasps">jlucasps</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+
+
+      </div>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        theme: Reveal.getQueryHash().theme || 'moon', // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
   </body>
 </html>
+>>>>>>> master

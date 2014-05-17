@@ -172,13 +172,13 @@
           Abrir o console e digitar: 
           <pre><code data-trim contenteditable class="ruby">
 jlucasps@lotus:~/Projects/ruby$ irb-ruby-2.0.0-p353
-2.0.0-p353 :001 > 2 + 7
+> 2 + 7
  => 9 
-2.0.0-p353 :002 > "Joao Lucas".capitalize
+> "Joao Lucas".capitalize
  => "Joao lucas" 
-2.0.0-p353 :003 > "Joao Lucas".upcase
+> "Joao Lucas".upcase
  => "JOAO LUCAS" 
-2.0.0-p353 :004 > 
+> 
           </code></pre>
         </section>
 
@@ -207,19 +207,19 @@ jlucasps@lotus:~/Projects/ruby$
           Digitar no interpretador:
           <pre><code data-trim contenteditable class="ruby">
 jlucasps@lotus:~/Projects/ruby$ irb-ruby-2.0.0-p353
-2.0.0-p353 :001 > class Book; end
+> class Book; end
  => nil
           </code></pre>
           <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :002 > Book.new.class
+> Book.new.class
  => Book 
-2.0.0-p353 :003 > Book.new.object_id
+> Book.new.object_id
  => 7256240
           </code></pre>
           <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :004 > Book.class
+> Book.class
  => Class 
-2.0.0-p353 :005 > Book.object_id
+> Book.object_id
  => 7359560
           </code></pre>
           Classes també são objetos!
@@ -250,15 +250,15 @@ end
             Abrir o interpretador e importar o arquivo <strong><code>book.rb</code></strong>
             <pre><code data-trim contenteditable class="ruby">
 jlucasps@elrond:~/Projects/ruby$ irb
-2.0.0-p353 :001 > require './book'
+> require './book'
  => true 
-2.0.0-p353 :002 > book = Book.new "Eloquent Ruby"
+> book = Book.new "Eloquent Ruby"
  => #&lt;Book:0x0000000173e870 @title="Eloquent Ruby"&gt; 
-2.0.0-p353 :003 > book.title
+> book.title
  => "Eloquent Ruby" 
-2.0.0-p353 :004 > book.send(:title)
+> book.send(:title)
  => "Eloquent Ruby" 
-2.0.0-p353 :005 >
+>
             </code></pre>
             Chamadas de métodos em objetos
         </section>
@@ -268,16 +268,16 @@ jlucasps@elrond:~/Projects/ruby$ irb
             <h3>Orientada a Objetos</h3>
             Ainda no interpretador
             <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :001 > 2.send(:+, 2)
+> 2.send(:+, 2)
  => 4 
-2.0.0-p353 :002 > arr = [:a, :b, :c]
+> arr = [:a, :b, :c]
  => [:a, :b, :c] 
-2.0.0-p353 :003 > arr.send(:[]=, 3, :d)
+> arr.send(:[]=, 3, :d)
  => :d 
-2.0.0-p353 :004 > arr
+> arr
  => [:a, :b, :c, :d] 
-2.0.0-p353 :005 > 
-2.0.0-p353 :006 > arr &lt;&lt; :e
+> 
+> arr &lt;&lt; :e
  => [:a, :b, :c, :d, :e] 
             </code></pre>
             Até mesmo operações são métodos
@@ -288,11 +288,11 @@ jlucasps@elrond:~/Projects/ruby$ irb
             <h3>Orientada a Objetos</h3>
             Mais métodos
             <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :011 > x = 3
+> x = 3
  => 3 
-2.0.0-p353 :012 > if ( x.send( :==, 3 ) )
-2.0.0-p353 :013?>   puts "X é igual a 3"
-2.0.0-p353 :014?> end
+> if ( x.send( :==, 3 ) )
+>   puts "X é igual a 3"
+> end
 X é igual a 3
  => nil 
             </code></pre>
@@ -303,13 +303,13 @@ X é igual a 3
             <h3>Orientada a Objetos</h3>
             Funções (métodos) criadas no interpretador
             <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :015 > def sum(a, b)
-2.0.0-p353 :016?>   a + b
-2.0.0-p353 :017?> end
+> def sum(a, b)
+>   a + b
+> end
  => nil 
-2.0.0-p353 :018 > sum( 3, 4 )
+> sum( 3, 4 )
  => 7 
-2.0.0-p353 :019 > self.send(:sum, 5, 6)
+> self.send(:sum, 5, 6)
  => 11 
             </code></pre>
         </section>
@@ -318,23 +318,23 @@ X é igual a 3
         <section>
             <h3>Tipagem Dinâmica</h3>
             <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :010 > def my_func(a, b, c)
-2.0.0-p353 :011?>   res = a
-2.0.0-p353 :012?>   puts res.class				
-2.0.0-p353 :013?>   # ...
-2.0.0-p353 :014 >   res = b
-2.0.0-p353 :015?>   puts res.class
-2.0.0-p353 :016?>   # more code here ...
-2.0.0-p353 :017 >   res = c
-2.0.0-p353 :018?>   puts res.class
-2.0.0-p353 :019?> end
+> def my_func(a, b, c)
+>   res = a
+>   puts res.class				
+>   # ...
+>   res = b
+>   puts res.class
+>   # more code here ...
+>   res = c
+>   puts res.class
+> end
  => nil 
-2.0.0-p353 :020 > my_func("v1", :v2, 3)
+> my_func("v1", :v2, 3)
 String
 Symbol
 Fixnum
  => nil 
-2.0.0-p353 :021 >
+>
             </code></pre>
             Variável armazena objetos de qualquer tipo
         </section>
@@ -343,15 +343,15 @@ Fixnum
         <section>
             <h3>Tipagem Dinâmica</h3>
             <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :029 > def other_func(d, e)
-2.0.0-p353 :030?>   res = d
-2.0.0-p353 :031?>   puts res.object_id
-2.0.0-p353 :032?>   # more code here ...
-2.0.0-p353 :033 >   res = e
-2.0.0-p353 :034?>   puts res.object_id
-2.0.0-p353 :035?> end
+> def other_func(d, e)
+>   res = d
+>   puts res.object_id
+>   # more code here ...
+>   res = e
+>   puts res.object_id
+> end
  => nil 
-2.0.0-p353 :036 > other_func(:d, ['e'])
+> other_func(:d, ['e'])
 373928
 11939060
  => nil 
@@ -397,13 +397,13 @@ end
             </code></pre>
             <pre><code data-trim contenteditable class="ruby">
 jlucasps@elrond:~/Projects/ruby$ irb
-2.0.0-p353 :001 > require './book'
+> require './book'
  => true 
-2.0.0-p353 :002 > book = Book.new( "Eloquent Ruby" )
+> book = Book.new( "Eloquent Ruby" )
  => #&lt;Book:0x000000015d3b20 @title="Eloquent Ruby"&gt; 
-2.0.0-p353 :003 > book.title
+> book.title
  => "Eloquent Ruby" 
-2.0.0-p353 :004 > 
+> 
             </code></pre>
         </section>
 
@@ -412,13 +412,13 @@ jlucasps@elrond:~/Projects/ruby$ irb
             <h3>Reflection</h3>
             <pre><code data-trim contenteditable class="ruby">
 jlucasps@elrond:~/Projects/ruby$ irb
-2.0.0-p353 :001 > require './book'
+> require './book'
  => true 
-2.0.0-p353 :003 > book = Book.new ( "Eloquent Ruby" )
+> book = Book.new ( "Eloquent Ruby" )
  => #&lt;Book:0x0000000138a288 @title="Eloquent Ruby"&gt; 
-2.0.0-p353 :004 > book.respond_to?(:title)
+> book.respond_to?(:title)
  => true 
-2.0.0-p353 :005 > book.respond_to?(:content)
+> book.respond_to?(:content)
  => false
             </code></pre>
             Inspecionando objetos
@@ -427,11 +427,11 @@ jlucasps@elrond:~/Projects/ruby$ irb
         <section>
           <h3>Reflection</h3>
           <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :001 > require './book'
+> require './book'
  => true 
-2.0.0-p353 :003 > book = Book.new "Eloquent Ruby"
+> book = Book.new "Eloquent Ruby"
  => #&lt;Book:0x00000002845330 @title="Eloquent Ruby"&gt; 
-2.0.0-p353 :004 > book.methods
+> book.methods
  => [:title, :title=, :nil?, :===, :=~, :!~, :eql?, :hash, :&lt;=&gt;,
       :class, :singleton_class, :clone, :dup, :taint, :tainted?,
       :untaint, :untrust, :untrusted?, :trust, :freeze, :frozen?,
@@ -444,7 +444,7 @@ jlucasps@elrond:~/Projects/ruby$ irb
       :define_singleton_method, :object_id, :to_enum, :enum_for,
       :==, :equal?, :!, :!=, :instance_eval, :instance_exec,
       :__send__, :__id__] 
-2.0.0-p353 :005 >
+>
           </code></pre>
         </section>
 
@@ -502,11 +502,11 @@ end
           <h3>Acesso a variáveis</h3>
           Constantes
           <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :013 > class Magazine
-2.0.0-p353 :014?>     MAX_PAGES = 30
-2.0.0-p353 :015?> end
+> class Magazine
+>     MAX_PAGES = 30
+> end
  => 30 
-2.0.0-p353 :016 > Magazine::MAX_PAGES
+> Magazine::MAX_PAGES
  => 30 
           </code></pre>
         </section>
@@ -515,18 +515,18 @@ end
           <h3>Acesso a variáveis</h3>
           Variáveis de instância
           <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :017 > class Magazine
-2.0.0-p353 :018?>     def initialize
-2.0.0-p353 :019?>         @max_pages = 30 # instance variable
-2.0.0-p353 :020?>     end
-2.0.0-p353 :021?>     def max_pages
-2.0.0-p353 :022?>         @max_pages
-2.0.0-p353 :023?>     end
-2.0.0-p353 :024?> end
+> class Magazine
+>     def initialize
+>         @max_pages = 30 # instance variable
+>     end
+>     def max_pages
+>         @max_pages
+>     end
+> end
  => nil 
-2.0.0-p353 :026 > m = Magazine.new
+> m = Magazine.new
  => #&lt;Magazine:0x000000024c5610 @max_pages=30&gt;
-2.0.0-p353 :027 > m.max_pages
+> m.max_pages
  => 30 
           </code></pre>
         </section>
@@ -535,17 +535,17 @@ end
           <h3>Acesso a Variáveis</h3>
           Variáveis de classe
           <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :037 > class Magazine
-2.0.0-p353 :038?>     @@max_pages = 30 # class variable
-2.0.0-p353 :039?>     def initialize
-2.0.0-p353 :040?>         # ... 
-2.0.0-p353 :041 >     end
-2.0.0-p353 :042?>     def self.max_pages
-2.0.0-p353 :043?>         @@max_pages
-2.0.0-p353 :044?>     end
-2.0.0-p353 :045?> end
+> class Magazine
+>     @@max_pages = 30 # class variable
+>     def initialize
+>         # ... 
+>     end
+>     def self.max_pages
+>         @@max_pages
+>     end
+> end
  => nil 
-2.0.0-p353 :046 > Magazine.max_pages
+> Magazine.max_pages
  => 30 
           </code></pre>
         </section>
@@ -560,19 +560,19 @@ system = :linux
           </code></pre>
           "String's imutáveis cujo valor é o próprio símbolo"
           <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :053 > lang = :ruby
+> lang = :ruby
  => :ruby 
-2.0.0-p353 :054 > lang.to_s
+> lang.to_s
  => "ruby" 
-2.0.0-p353 :055 > framework = "rails".to_sym
+> framework = "rails".to_sym
  => :rails 
           </code></pre>
           <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :056 > new_lang = "ruby".to_sym
+> new_lang = "ruby".to_sym
  => :ruby
-2.0.0-p353 :057 > new_lang.object_id
+> new_lang.object_id
  => 321608 
-2.0.0-p353 :058 > lang.object_id
+> lang.object_id
  => 321608 
           </code></pre>
         </section>
@@ -583,21 +583,21 @@ system = :linux
           <p>Coleção de objetos ordenados</p>
           <p>Indexados por números inteiros começando em 0</p> 
           <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :059 > arr = [1, "2", :c, {"name" => "Joao Lucas"}, 5]
+> arr = [1, "2", :c, {"name" => "Joao Lucas"}, 5]
  => [1, "2", :c, {"name"=>"Joao Lucas"}, 5] 
-2.0.0-p353 :060 > arr[0]
+> arr[0]
  => 1 
-2.0.0-p353 :061 > arr.last
+> arr.last
  => 5 
           </code></pre>
           <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :062 > numbers = [1, 2, 3, 4, 5, 6]
+> numbers = [1, 2, 3, 4, 5, 6]
  => [1, 2, 3, 4, 5, 6] 
-2.0.0-p353 :063 > numbers.min
+> numbers.min
  => 1 
-2.0.0-p353 :064 > numbers.max
+> numbers.max
  => 6 
-2.0.0-p353 :065 > numbers.reverse
+> numbers.reverse
  => [6, 5, 4, 3, 2, 1]
           </code></pre>
         </section>
@@ -606,17 +606,17 @@ system = :linux
         <section>
           <h3>Array</h3>
           <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :070 > numbers
+> numbers
  => [1, 2, 3, 4, 5, 6] 
-2.0.0-p353 :071 > numbers.shuffle
+> numbers.shuffle
  => [1, 4, 6, 3, 2, 5] 
-2.0.0-p353 :072 > numbers.push 7
+> numbers.push 7
  => [1, 2, 3, 4, 5, 6, 7] 
-2.0.0-p353 :073 > numbers &lt;&lt; 8
+> numbers &lt;&lt; 8
  => [1, 2, 3, 4, 5, 6, 7, 8] 
-2.0.0-p353 :075 > numbers.pop
+> numbers.pop
  => 8 
-2.0.0-p353 :076 > numbers
+> numbers
  => [1, 2, 3, 4, 5, 6, 7] 
           </code></pre>
         </section>
@@ -626,21 +626,21 @@ system = :linux
           <p>Coleçao de pares chave-valor</p>
           <p>Indexados por objetos de qualquer tipo</p>
           <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :077 > h = {"lang" => "Ruby", "os" => "Linus", "db" => "Postgres"}
+> h = {"lang" => "Ruby", "os" => "Linus", "db" => "Postgres"}
  => {"lang"=>"Ruby", "os"=>"Linus", "db"=>"PostgreSQL"} 
-2.0.0-p353 :078 > h.keys
+> h.keys
  => ["lang", "os", "db"] 
-2.0.0-p353 :079 > h.values
+> h.values
  => ["Ruby", "Linus", "PostgreSQL"] 
-2.0.0-p353 :080 > h[10] = "Ruby classes"
+> h[10] = "Ruby classes"
  => "Ruby classes" 
-2.0.0-p353 :081 > h
+> h
  => {"lang"=>"Ruby", "os"=>"Linus", "db"=>"PostgreSQL", 10=>"Ruby classes"} 
-2.0.0-p353 :082 > h[{"a" => "b"}] = "C"
+> h[{"a" => "b"}] = "C"
  => "C" 
-2.0.0-p353 :085 > h.delete("db")
+> h.delete("db")
  => "PostgreSQL" 
-2.0.0-p353 :086 > h
+> h
  => {"lang"=>"Ruby", "os"=>"Linus", 10=>"Ruby classes", {"a"=>"b"}=>"C"}
           </code></pre>
         </section>
@@ -650,12 +650,12 @@ system = :linux
           <h3>Hashes com Símbolos</h3>
           <p>Ruby 1.8</p>
           <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :086 > tools = {:lang => "Ruby", :framework => "Rails"}
+> tools = {:lang => "Ruby", :framework => "Rails"}
  => {:lang=>"Ruby", :framework=>"Rails"}
           </code></pre>
           <p>Ruby 1.9</p>
           <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :091 > tools = {lang: "Ruby", framework: "Rails"}
+> tools = {lang: "Ruby", framework: "Rails"}
  => {:lang=>"Ruby", :framework=>"Rails"} 
           </code></pre>
         </section>
@@ -703,13 +703,13 @@ def print_key_value( hash )
 end
           </code></pre>
           <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :002 > print_key_value({ user: "Joao lucas", email: "jlucasps" })
+> print_key_value({ user: "Joao lucas", email: "jlucasps" })
           </code></pre>
           <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :003 > print_key_value( user: "Joao lucas", email: "jlucasps" )
+> print_key_value( user: "Joao lucas", email: "jlucasps" )
           </code></pre>
           <pre><code data-trim contenteditable class="ruby">
-2.0.0-p353 :004 > print_key_value user: "Joao lucas", email: "jlucasps" 
+> print_key_value user: "Joao lucas", email: "jlucasps" 
           </code></pre>
           <pre><code data-trim contenteditable class="ruby">
 chave: user - value: Joao lucas

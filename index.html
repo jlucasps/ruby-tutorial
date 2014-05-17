@@ -81,8 +81,9 @@
             <ul>
                 <li class="fragment">Linguagem Ruby</li>
                 <li class="fragment">Ruby on Rails full stack</li>
-                <li class="fragment">Estrutura do projeto</li>
-                <li class="fragment">...</li>
+                <li class="fragment">Ferramentas e ambiente</li>
+                <li class="fragment">Aplicação Básicas</li>
+                <li class="fragment">Deploy na Heroku</li>
             </ul>
         </section>
 
@@ -140,7 +141,7 @@
               Orientada a Objetos
               <ul>
                 <li>Tudo é objeto</li>
-                <li>Operação são chamadas de <strong>métodos</strong> em algum <strong>objeto</strong></li>
+                <li>Operações são chamadas de <strong>métodos</strong> em algum <strong>objeto</strong></li>
               </ul>
             </li>
             <li class="fragment">
@@ -222,7 +223,7 @@ jlucasps@lotus:~/Projects/ruby$ irb-ruby-2.0.0-p353
 > Book.object_id
  => 7359560
           </code></pre>
-          Classes també são objetos!
+          Classes também são objetos!
         </section>
 
 
@@ -622,7 +623,7 @@ system = :linux
         </section>
 
         <section>
-          <h3>Hashes</h3>
+          <h3>Hash</h3>
           <p>Coleçao de pares chave-valor</p>
           <p>Indexados por objetos de qualquer tipo</p>
           <pre><code data-trim contenteditable class="ruby">
@@ -752,8 +753,115 @@ end
           </ul>
         </section>
 
+      <section>
+        <h3>Blocks</h3>
+        <p>Criar um novo método <code>iterate!</code> e adicionar à classe <code>Array</code></p>
+        <pre><code data-trim contenteditable class="ruby">
+class Array
+  def iterate!
+      self.each_with_index do |n, i|
+        self[i] = yield n
+      end
+  end
+end
+        </code></pre>
+        <pre><code data-trim contenteditable class="ruby">
+> array = [1, 2, 3, 4]
+ => [1, 2, 3, 4] 
+> array.iterate! { |n|
+>   (n * 3) + 5
+> }
+ => [8, 11, 14, 17]
+        </code></pre>
+        Ao chamar o <code>yield</code>, iremos executar o bloco de código fornecido ao método 
+      </section>
+
+      <section>
+        <h3>Procs</h3>
+        <pre><code data-trim contenteditable class="ruby">
+class Array
+  def iterate!( &code )
+    self.each_with_index do |n, i|
+      self[i] = code.call( n )
+    end
+  end
+end
+        </code></pre>
+        <pre><code data-trim contenteditable class="ruby">
+> array = [10, 11, 12, 13]
+ => [10, 11, 12, 13] 
+> array.iterate! do |n|
+>   n ** 2
+> end
+ => [100, 121, 144, 169] 
+        </code></pre>
+      </section>
 
 
+      <section>
+        <h3>Methods</h3>
+        <pre><code data-trim contenteditable class="ruby">
+class Caller
+  def self.exec_before( method_name)
+    @@before = method_name 
+  end
+
+  def self.exec_after( method_name )
+    @@after = method_name
+  end
+
+  def execute( &code )
+    method(@@before).call if defined? @@before
+    code.call
+    method(@@after).call if defined? @@after
+  end
+end
+        </code></pre>
+        <p>Métodos de classe para salvar símbolos nos atributos da classe</p>
+        <p>Método para executar uma <code>Proc</code> entre duas chamadas de métodos</p>
+      </section>
+
+      <section>
+        <h3>Methods</h3>
+        <pre><code data-trim contenteditable class="ruby">
+class Executor &lt; Caller
+
+  exec_before( :say_hello )
+  exec_after( :say_bye )
+
+
+  def say_hello
+    puts "Hello, I'm here!"
+  end
+
+  def say_bye
+    puts "Good bye!"
+  end
+end
+        </code></pre>
+        <p>Classe com dois métodos configurados para serem executados como <code>before</code> e <code>after</code></p>
+      </section>
+
+
+      <section>
+        <h3>Methods</h3>
+        <pre><code data-trim contenteditable class="ruby">
+exec = Executor.new
+
+exec.execute do 
+  puts "I do my job"
+end
+
+# Hello, I'm here!
+# I do my job
+# Good bye!
+        </code></pre>
+        <p>Callbacks executados</p>
+      </section>
+
+      <section>
+        <h2>Let's go to Rails</h2>
+      </section>
 
 
       </div>
